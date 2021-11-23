@@ -1,7 +1,7 @@
 <?php include "header.php"; 
 
 if(isset($_POST['save'])){
-  
+  include "config.php";
 }
 
 ?>
