@@ -1,4 +1,5 @@
 <?php include "header.php"; ?>
+
   <div id="admin-content">
       <div class="container">
           <div class="row">
@@ -6,10 +7,20 @@
                   <h1 class="admin-heading">Modify User Details</h1>
               </div>
               <div class="col-md-offset-4 col-md-4">
+                  <?php
+                    include "config.php";
+                    $user_id = $_GET['id'];
+                    $sql = "SELECT * FROM user WHERE user_id = {$user_id}";
+                    $result = mysqli_query($conn, $sql) or die("Query Failed.");
+
+                    if(mysqli_num_rows($result) > 0) {
+                        while($row = my_sqli_fetch_assoc($result)) {
+
+                  ?>
                   <!-- Form Start -->
                   <form  action="" method ="POST">
                       <div class="form-group">
-                          <input type="hidden" name="user_id"  class="form-control" value="1" placeholder="" >
+                          <input type="hidden" name="user_id"  class="form-control" value="<?php echo $row['user_id']; ?>" placeholder="" >
                       </div>
                           <div class="form-group">
                           <label>First Name</label>
@@ -32,6 +43,10 @@
                       </div>
                       <input type="submit" name="submit" class="btn btn-primary" value="Update" required />
                   </form>
+                  <?php
+                        }
+                    }
+                  ?>
                   <!-- /Form -->
               </div>
           </div>
