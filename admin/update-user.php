@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
     $password = mysqli_real_escape_string($conn,md5($_POST['password']));
     $role = mysqli_real_escape_string($conn,$_POST['role']);
   
-   $sql = "UPDATE user FROM user WHERE username = '{$user}'";
+   $sql = "UPDATE user SET first_name = '{$fname}',last_name = '{$lname}',username = '{$user}',role = '{$role}'";
     $result = mysqli_query($conn, $sql) or die("Query Failed."); 
   
     if(mysqli_num_rows($result) > 0){
