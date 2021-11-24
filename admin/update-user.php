@@ -4,24 +4,21 @@ if(isset($_POST['submit'])){
     include "config.php";
   
     $userid =mysqli_real_escape_string($conn,$_POST['user_id']);
-    $fname =mysqli_real_escape_string($conn,$_POST['fname']);
-    $lname = mysqli_real_escape_string($conn,$_POST['lname']);
-    $user =mysqli_real_escape_string($conn,$_POST['user']);
-    $password = mysqli_real_escape_string($conn,md5($_POST['password']));
+    $fname =mysqli_real_escape_string($conn,$_POST['f_name']);
+    $lname = mysqli_real_escape_string($conn,$_POST['l_name']);
+    $user =mysqli_real_escape_string($conn,$_POST['username']);
+    // $password = mysqli_real_escape_string($conn,md5($_POST['password']));
     $role = mysqli_real_escape_string($conn,$_POST['role']);
   
-   $sql = "UPDATE user SET first_name = '{$fname}',last_name = '{$lname}',username = '{$user}',role = '{$role}'";
-    $result = mysqli_query($conn, $sql) or die("Query Failed."); 
+   $sql = "UPDATE user SET first_name = '{$fname}',last_name = '{$lname}',username = '{$user}',role = '{$role}' WHERE user_id = {$userid}";
+    // $result = mysqli_query($conn, $sql) or die("Query Failed."); 
   
-    if(mysqli_num_rows($result) > 0){
-      echo "<p style='color:red;text-align:center;margin: 10px 0;'>UserName already exists.</p>";
-    }else{
-      $sql1 = "INSERT INTO user (first_name, last_name, username, password, role)
-      VALUES ('{$fname}','{$lname}','{$user}','{$password}','{$role}')";
-      if(mysqli_query($conn,$sql1)){
+
+     
+      if(mysqli_query($conn,$sql)){
         header("Location: {$hostname}/admin/users.php");
       }
-    }
+    
   }
 
 ?>
