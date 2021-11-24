@@ -24,15 +24,15 @@
                       </div>
                           <div class="form-group">
                           <label>First Name</label>
-                          <input type="text" name="f_name" class="form-control" value="Ram" placeholder="" required>
+                          <input type="text" name="f_name" class="form-control" value="<?php echo $row['first_name']; ?>" placeholder="" required>
                       </div>
                       <div class="form-group">
                           <label>Last Name</label>
-                          <input type="text" name="l_name" class="form-control" value="Sharma" placeholder="" required>
+                          <input type="text" name="l_name" class="form-control" value="<?php echo $row['last_name']; ?>" placeholder="" required>
                       </div>
                       <div class="form-group">
                           <label>User Name</label>
-                          <input type="text" name="username" class="form-control" value="ram" placeholder="" required>
+                          <input type="text" name="username" class="form-control" value="<?php echo $row['username']; ?>" placeholder="" required>
                       </div>
                       <div class="form-group">
                           <label>User Role</label>
