@@ -29,10 +29,10 @@
                       <tbody>
                           <?php while($row = mysqli_fetch_assoc($result)) { ?>
                           <tr>
-                              <td class='id'>1</td>
-                              <td>Ram Sharma</td>
-                              <td>ram</td>
-                              <td>admin</td>
+                              <td class='id'><?php echo $row['user_id']; ?></td>
+                              <td><?php echo $row['first_name']. " " . $row['last_name']; ?></td>
+                              <td><?php echo $row['username']; ?></td>
+                              <td><?php echo $row['role']; ?></td>
                               <td class='edit'><a href='update-user.php'><i class='fa fa-edit'></i></a></td>
                               <td class='delete'><a href='delete-user.php'><i class='fa fa-trash-o'></i></a></td>
                           </tr>
