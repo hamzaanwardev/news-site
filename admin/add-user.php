@@ -2,9 +2,20 @@
 
 if(isset($_POST['save'])){
   include "config.php";
+
+  $fname =mysqli_real_escape_string($conn,$_POST['fname']);
+  $lname = mysqli_real_escape_string($conn,$_POST['lfname']);
+  $user =mysqli_real_escape_string($conn,$_POST['user']);
+  $password = mysqli_real_escape_string($conn,md5($_POST['password']));
+  $role = mysqli_real_escape_string($conn,$_POST['role']);
+
+  $sql = "SELECT username FROM WHERE username = {$user}";
+  $result = mysqli_query($conn, $sql) or die("Query Failed."); 
+
+  if(mysqli_num_rows)
 }
 
-?>
+?> 
   <div id="admin-content">
       <div class="container">
           <div class="row">
