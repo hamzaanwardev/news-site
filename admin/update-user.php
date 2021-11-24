@@ -1,4 +1,30 @@
-<?php include "header.php"; ?>
+<?php include "header.php"; 
+
+if(isset($_POST['submit'])){
+    include "config.php";
+  
+    $userid =mysqli_real_escape_string($conn,$_POST['user_id']);
+    $fname =mysqli_real_escape_string($conn,$_POST['fname']);
+    $lname = mysqli_real_escape_string($conn,$_POST['lname']);
+    $user =mysqli_real_escape_string($conn,$_POST['user']);
+    $password = mysqli_real_escape_string($conn,md5($_POST['password']));
+    $role = mysqli_real_escape_string($conn,$_POST['role']);
+  
+   $sql = "UPDATE user FROM user WHERE username = '{$user}'";
+    $result = mysqli_query($conn, $sql) or die("Query Failed."); 
+  
+    if(mysqli_num_rows($result) > 0){
+      echo "<p style='color:red;text-align:center;margin: 10px 0;'>UserName already exists.</p>";
+    }else{
+      $sql1 = "INSERT INTO user (first_name, last_name, username, password, role)
+      VALUES ('{$fname}','{$lname}','{$user}','{$password}','{$role}')";
+      if(mysqli_query($conn,$sql1)){
+        header("Location: {$hostname}/admin/users.php");
+      }
+    }
+  }
+
+?>
 
   <div id="admin-content">
       <div class="container">
@@ -14,11 +40,10 @@
                     $result = mysqli_query($conn, $sql) or die("Query Failed.");
 
                     if(mysqli_num_rows($result) > 0) {
-                        while($row = my_sqli_fetch_assoc($result)) {
-
+                        while($row = mysqli_fetch_assoc($result)) {
                   ?>
                   <!-- Form Start -->
-                  <form  action="" method ="POST">
+                  <form  action="<?php $_SERVER['PHP_SELF'];  ?>" method ="POST">
                       <div class="form-group">
                           <input type="hidden" name="user_id"  class="form-control" value="<?php echo $row['user_id']; ?>" placeholder="" >
                       </div>
@@ -38,11 +63,11 @@
                           <label>User Role</label>
                           <select class="form-control" name="role" value="<?php echo $row['role']; ?>">
                           <?php if ($row['role'] == 1){
-                                  echo " <option value='0'>normal User</option>
+                                  echo "<option value='0'>normal User</option>
                                   <option value='1' selected>Admin</option>";
                               }else{
-                                  echo " <option value="0" selected>normal User</option>
-                                  <option value="1">Admin</option>";
+                                  echo "<option value='0' selected>normal User</option>
+                                  <option value='1'>Admin</option>";
                               } ?>
                              
                           </select>
