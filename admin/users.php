@@ -45,6 +45,8 @@
                   </table>
                   <?php
                     }
+
+                    $sql1 = "SELECT * FROM user";
                   ?>
                   <ul class='pagination admin-pagination'>
                       <li class="active"><a>1</a></li>
