@@ -47,6 +47,7 @@
                     }
 
                     $sql1 = "SELECT * FROM user";
+                    $result1 = mysqli_query($conn, $sql1) or die("Query Failed");
                   ?>
                   <ul class='pagination admin-pagination'>
                       <li class="active"><a>1</a></li>
