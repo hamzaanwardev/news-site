@@ -48,12 +48,24 @@
 
                     $sql1 = "SELECT * FROM user";
                     $result1 = mysqli_query($conn, $sql1) or die("Query Failed");
+
+                    if(mysqli_num_rows($result1) > 0) {
+                        $total_records =  mysqli_num_rows($result1);
+                        $limit = 3;
+                        $total_pages = ceil($total_records / $limit);
+
+                        echo '<ul class="pagination admin-pagination">';
+                        for($i = 1; $i <= $total_pages; $i++){
+                            echo '<li><a>{$i}</a></li>';
+                        }
+                        echo '</ul>';
+                    }
                   ?>
-                  <ul class='pagination admin-pagination'>
+                  
                       <li class="active"><a>1</a></li>
-                      <li><a>2</a></li>
+                      
                       <li><a>3</a></li>
-                  </ul>
+                  
               </div>
           </div>
       </div>
