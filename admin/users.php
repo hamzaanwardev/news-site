@@ -61,10 +61,7 @@
                         echo '</ul>';
                     }
                   ?>
-                  
-                      <li class="active"><a>1</a></li>
                       
-                      <li><a>3</a></li>
                   
               </div>
           </div>
