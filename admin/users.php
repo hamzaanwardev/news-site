@@ -56,7 +56,7 @@
 
                         echo '<ul class="pagination admin-pagination">';
                         for($i = 1; $i <= $total_pages; $i++){
-                            echo '<li><a href="users.php?page={$i}">{$i}</a></li>';
+                            echo '<li><a href="users.php?page='.$i.'">'.$i.'</a></li>';
                         }
                         echo '</ul>';
                     }
