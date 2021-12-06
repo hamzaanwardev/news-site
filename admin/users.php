@@ -11,8 +11,10 @@
               <div class="col-md-12">
                   <?php
                     include "config.php";
-
-                    $sql = "SELECT * FROM user ORDER BY user_id DESC";
+                    $limit = 3;
+                    $page = $_GET['page'];
+                    $offset = {$page - 1} * $limit;
+                    $sql = "SELECT * FROM user ORDER BY user_id DESC LIMIT {$offset}, {$limit}";
                     $result = mysqli_query($conn, $sql) or die("Query Failed.");
 
                     if(mysqli_num_rows($result) > 0) {
@@ -51,7 +53,7 @@
 
                     if(mysqli_num_rows($result1) > 0) {
                         $total_records =  mysqli_num_rows($result1);
-                        $limit = 3;
+                        
                         $total_pages = ceil($total_records / $limit);
 
                         echo '<ul class="pagination admin-pagination">';
