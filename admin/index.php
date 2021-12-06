@@ -33,6 +33,7 @@
                         <?php
                             if(isset($_POST['login'])) {
                                 include "config.php";
+                                $username = $_POST['username'];
                             }
 
                         ?>
