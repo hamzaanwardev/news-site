@@ -63,7 +63,9 @@
                         $total_pages = ceil($total_records / $limit);
 
                         echo '<ul class="pagination admin-pagination">';
-                        echo '<li><a>Prev</a></li>';
+                        if($page > 1) {
+                            echo '<li><a>Prev</a></li>';
+                        }
                         for($i = 1; $i <= $total_pages; $i++){
                             if($i == $page){
                                 $active = "active";
@@ -72,7 +74,9 @@
                             }
                             echo '<li class="'.$active.'"><a href="users.php?page='.$i.'">'.$i.'</a></li>';
                         }
-                        echo '<li><a>Next</a></li>';
+                        if($total_page > $page){
+                            echo '<li><a>Next</a></li>';
+                        }
                         echo '</ul>';
                     }
                   ?>
