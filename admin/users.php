@@ -12,8 +12,14 @@
                   <?php
                     include "config.php";
                     $limit = 3;
-                    $page = $_GET['page'];
-                    $offset = {$page - 1} * $limit;
+                    
+                    if(isset($_GET['page'])){
+                        $page = $_GET['page'];
+                    }else{
+                        $page = 1;
+                    }
+                    $offset = ($page - 1) * $limit;
+
                     $sql = "SELECT * FROM user ORDER BY user_id DESC LIMIT {$offset}, {$limit}";
                     $result = mysqli_query($conn, $sql) or die("Query Failed.");
 
