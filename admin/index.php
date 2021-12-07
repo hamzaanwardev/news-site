@@ -33,7 +33,7 @@
                         <?php
                             if(isset($_POST['login'])) {
                                 include "config.php";
-                                $username = $_POST['username'];
+                                $username = mysqli_real_escape_string($conn, $_POST['username']);
                             }
 
                         ?>
