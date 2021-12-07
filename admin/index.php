@@ -34,6 +34,10 @@
                             if(isset($_POST['login'])) {
                                 include "config.php";
                                 $username = mysqli_real_escape_string($conn, $_POST['username']);
+                                $password = md5($_POST['password']);
+
+                                $sql = "SELECT user_id, username, role FROM user WHERE username = {'$username'} AND password = {'$password'}";
+                                $result = mysqli_query($conn, $sql) or die ("Query Failed.");
                             }
 
                         ?>
