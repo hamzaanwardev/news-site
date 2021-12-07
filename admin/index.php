@@ -41,6 +41,10 @@
 
                                 if(mysqli_num_rows($result) > 0) {
 
+                                    while($row = mysqli_fetch_assoc($result)) {
+                                        session_start();
+                                    }
+
                                 }else{
                                     echo '<div class="alert alert-danger">Username and Password ae not matched.</div>';
                                 }
