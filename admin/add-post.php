@@ -21,7 +21,7 @@
                           <select name="category" class="form-control">
                               <option value="" selected> Select Category</option>
                               <?php
-    include config.php;
+                                   include config.php;
                               ?>
                           </select>
                       </div>
