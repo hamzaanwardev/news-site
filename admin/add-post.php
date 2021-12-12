@@ -22,6 +22,7 @@
                               <option value="" selected> Select Category</option>
                               <?php
                                    include config.php;
+                                   $sql = "SELECT * FROM category";
                               ?>
                           </select>
                       </div>
