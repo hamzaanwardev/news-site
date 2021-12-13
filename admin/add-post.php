@@ -23,6 +23,8 @@
                               <?php
                                    include config.php;
                                    $sql = "SELECT * FROM category";
+
+                                   $result = mysqli_query($conn, $sql) or die("Query Failed.");
                               ?>
                           </select>
                       </div>
