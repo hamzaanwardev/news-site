@@ -25,6 +25,10 @@
                                    $sql = "SELECT * FROM category";
 
                                    $result = mysqli_query($conn, $sql) or die("Query Failed.");
+
+                                   if(mysqli_num_rows($result) > 0) {
+                                       
+                                   }
                               ?>
                           </select>
                       </div>
