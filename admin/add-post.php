@@ -27,7 +27,7 @@
                                    $result = mysqli_query($conn, $sql) or die("Query Failed.");
 
                                    if(mysqli_num_rows($result) > 0) {
-                                       while($row = mysqli_fetch_assoc())
+                                       while($row = mysqli_fetch_assoc($result))
                                    }
                               ?>
                           </select>
