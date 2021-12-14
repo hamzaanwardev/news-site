@@ -20,6 +20,7 @@
                           <th>Delete</th>
                       </thead>
                       <tbody>
+                          <?php while($row = mysqli_fetch_assoc($result)) {} ?>
                           <tr>
                               <td class='id'>1</td>
                               <td>Lorem ipsum dolor sit amet</td>
