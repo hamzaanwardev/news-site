@@ -37,6 +37,8 @@
                     ORDER BY post.post_id DESC LIMIT {$offset},{$limit}";
                   }
 
+                  // sql result
+
                   $result = mysqli_query($conn, $sql) or die("Query Failed.");
                   if(mysqli_num_rows($result) > 0){
                 ?>
